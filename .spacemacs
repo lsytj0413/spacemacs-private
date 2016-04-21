@@ -35,6 +35,8 @@ values."
      markdown
      org
      (shell :variables
+            shell-default-shell 'eshell
+            shell-enable-smart-eshell t
             shell-default-height 30
             shell-default-position 'bottom)
      (c-c++ :variables
@@ -286,6 +288,7 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
   (global-company-mode)
+  (set-language-environment 'Chinese-GBK)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
