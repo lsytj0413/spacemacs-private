@@ -290,6 +290,8 @@ you should place you code here."
   (global-company-mode)
   (when (eq system-type 'windows-nt)
     (set-language-environment 'Chinese-GBK))
+  (add-hook 'python-mode-hook (lambda ()
+            (setq python-shell-prompt-detect-failure-warning nil)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
