@@ -218,7 +218,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -289,9 +289,24 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
   (global-company-mode)
   (when (eq system-type 'windows-nt)
-    (set-language-environment 'Chinese-GBK))
+    (set-language-environment 'Chinese-GBK)
+    ;; (set-language-environment "UTF-8")
+    ;; (set-default-coding-systems 'utf-8)
+    (set-buffer-file-coding-system 'utf-8-unix)
+    ;; (set-clipboard-coding-system 'utf-8-unix)
+    ;; (set-file-name-coding-system 'utf-8-unix)
+    ;; (set-keyboard-coding-system 'utf-8-unix)
+    ;; (set-next-selection-coding-system 'utf-8-unix)
+    ;; (set-selection-coding-system 'utf-8-unix)
+    ;; (set-terminal-coding-system 'utf-8-unix)
+    ;; (setq locale-coding-system 'utf-8)
+    ;; (prefer-coding-system 'utf-8)
+	)
   (add-hook 'python-mode-hook (lambda ()
-            (setq python-shell-prompt-detect-failure-warning nil)))
+                                (setq python-shell-prompt-detect-failure-warning nil)))
+  (menu-bar-mode t)
+  (add-hook 'markdown-mode-hook (lambda ()
+                                  (setq markdown-coding-system 'utf-8)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
