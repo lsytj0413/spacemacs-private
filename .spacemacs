@@ -49,6 +49,7 @@ values."
      github
      semantic
      common-lisp
+     haskell 
      ranger
      gtags
      ibuffer
