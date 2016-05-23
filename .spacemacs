@@ -305,11 +305,9 @@ you should place you code here."
     ;; (setq locale-coding-system 'utf-8)
     ;; (prefer-coding-system 'utf-8)
     )
-  (if (eq system-type 'windows-nt)
-      (set-variable 'ycmd-server-command '("python" "D:/YouCompleteMe/third_party/ycmd/ycmd/"))
-    (set-variable 'ycmd-server-command (list "python"
-                                             (concat (getenv "HOME")
-                                                     "/.spacemacs.d/tools/ycmd/ycmd/"))))
+  (set-variable 'ycmd-server-command (list "python"
+                                           (concat (getenv "HOME")
+                                                   "/.spacemacs.d/tools/ycmd/ycmd/")))
   (add-hook 'python-mode-hook (lambda ()
                                 (setq python-shell-prompt-detect-failure-warning nil)))
   (menu-bar-mode t)
