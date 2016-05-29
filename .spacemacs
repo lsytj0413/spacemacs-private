@@ -48,7 +48,11 @@ values."
      windows-scripts
      github
      semantic
-     ycmd
+     (when (eq system-type 'gnu/linux)
+       '(ycmd :variables
+              'ycmd-server-command (list "python"
+                                         (concat (getenv "HOME")
+                                                 "/.spacemacs.d/tools/ycmd/ycmd/"))))    ;; only use in linux, because of windows's ycmd-server isn't ok
      common-lisp
      haskell 
      ranger
@@ -305,14 +309,10 @@ you should place you code here."
     ;; (setq locale-coding-system 'utf-8)
     ;; (prefer-coding-system 'utf-8)
     )
-  (set-variable 'ycmd-server-command (list "python"
-                                           (concat (getenv "HOME")
-                                                   "/.spacemacs.d/tools/ycmd/ycmd/")))
   (add-hook 'python-mode-hook (lambda ()
                                 (setq python-shell-prompt-detect-failure-warning nil)))
   (menu-bar-mode t)
   (add-hook 'python-mode-hook 'ycmd-mode)
-  (setq ycmd--log-enabled t)
   (add-hook 'markdown-mode-hook (lambda ()
                                   (setq markdown-coding-system 'utf-8)))
   )
