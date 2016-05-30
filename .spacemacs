@@ -20,55 +20,63 @@ values."
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     spacemacs-helm
-     (auto-completion :variables
-                      auto-completion-enable-sort-by-usage t)
-     better-defaults
-     emacs-lisp
-     git
-     markdown
-     org
-     (shell :variables
-            shell-default-shell 'eshell
-            shell-enable-smart-eshell t
-            shell-default-height 30
-            shell-default-position 'bottom)
-     (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode
-            c-c++-enable-clang-support t)
-     asm
-     (python :variables
-             python-enable-yapf-format-on-save t)
-     windows-scripts
-     github
-     semantic
+   (append
+		;; layers always active
+	   '(
+		 ;; ----------------------------------------------------------------
+		 ;; Example of useful layers you may want to use right away.
+		 ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
+		 ;; <M-m f e R> (Emacs style) to install them.
+		 ;; ----------------------------------------------------------------
+		 spacemacs-helm
+		 (auto-completion :variables
+						  auto-completion-enable-sort-by-usage t)
+		 better-defaults
+		 emacs-lisp
+		 git
+		 markdown
+		 org
+		 (shell :variables
+				shell-default-shell 'eshell
+				shell-enable-smart-eshell t
+				shell-default-height 30
+				shell-default-position 'bottom)
+		 (c-c++ :variables
+				c-c++-default-mode-for-headers 'c++-mode
+				c-c++-enable-clang-support t)
+		 asm
+		 (python :variables
+				 python-enable-yapf-format-on-save t)
+		 windows-scripts
+		 github
+		 semantic
+		 ;; (when (eq system-type 'gnu/linux)
+		 ;;   '(ycmd :variables
+		 ;;          'ycmd-server-command (list "python"
+		 ;;                                     (concat (getenv "HOME")
+		 ;;                                             "/.spacemacs.d/tools/ycmd/ycmd/"))))    ;; only use in linux, because of windows's ycmd-server isn't ok
+		 common-lisp
+		 haskell 
+		 ranger
+		 gtags
+		 ibuffer
+		 (colors :variables
+				 colors-enable-nyan-cat-progress-bar t
+				 colors-enable-rainbow-identifiers t)
+		 (spacemacs-layouts :variables
+							layouts-enable-autosave t
+							layouts-autosave-delay 300)
+		 ;; spell-checking
+		 (syntax-checking :variables
+						  syntax-checking-enable-by-default t)
+		 ;; version-control
+		 liter
+		 )
+
+     ;; layers active depend on system-type
      (when (eq system-type 'gnu/linux)
-       '(ycmd :variables
-              'ycmd-server-command (list "python"
-                                         (concat (getenv "HOME")
-                                                 "/.spacemacs.d/tools/ycmd/ycmd/"))))    ;; only use in linux, because of windows's ycmd-server isn't ok
-     common-lisp
-     haskell 
-     ranger
-     gtags
-     ibuffer
-     (colors :variables
-             colors-enable-nyan-cat-progress-bar t
-             colors-enable-rainbow-identifiers t)
-     (spacemacs-layouts :variables
-                        layouts-enable-autosave t
-                        layouts-autosave-delay 300)
-     ;; spell-checking
-     (syntax-checking :variables
-                      syntax-checking-enable-by-default t)
-     ;; version-control
-     liter
+       '(ycmd)
+       )
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -312,9 +320,15 @@ you should place you code here."
   (add-hook 'python-mode-hook (lambda ()
                                 (setq python-shell-prompt-detect-failure-warning nil)))
   (menu-bar-mode t)
-  (add-hook 'python-mode-hook 'ycmd-mode)
   (add-hook 'markdown-mode-hook (lambda ()
                                   (setq markdown-coding-system 'utf-8)))
+  ;; config depend on system-type
+  (when (eq system-type 'gnu/linux)
+    (set-variable 'ycmd-server-command (list "python"
+                                             (concat (getenv "HOME")
+                                                     "/.spacemacs.d/tools/ycmd/ycmd/")))
+    (add-hook 'python-mode-hook 'ycmd-mode)
+    )
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
