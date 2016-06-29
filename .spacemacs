@@ -312,7 +312,7 @@ you should place you code here."
     (add-hook 'python-mode-hook 'ycmd-mode)
     )
   (when (eq system-type 'windows-nt)
-	(set-buffer-file-coding-system 'utf-8-unix)
+    (set-buffer-file-coding-system 'utf-8-unix)
     (set-language-environment 'Chinese-GBK)
     ;; (set-language-environment "UTF-8")
     ;; (set-default-coding-systems 'utf-8)
