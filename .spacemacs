@@ -28,7 +28,7 @@ values."
 		  ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
 		  ;; <M-m f e R> (Emacs style) to install them.
 		  ;; ----------------------------------------------------------------
-		  spacemacs-helm
+		  helm
 		  (auto-completion :variables
 		   			           auto-completion-enable-sort-by-usage t)
 		  better-defaults
@@ -312,10 +312,10 @@ you should place you code here."
     (add-hook 'python-mode-hook 'ycmd-mode)
     )
   (when (eq system-type 'windows-nt)
+	(set-buffer-file-coding-system 'utf-8-unix)
     (set-language-environment 'Chinese-GBK)
     ;; (set-language-environment "UTF-8")
     ;; (set-default-coding-systems 'utf-8)
-    (set-buffer-file-coding-system 'utf-8-unix)
     ;; (set-clipboard-coding-system 'utf-8-unix)
     ;; (set-file-name-coding-system 'utf-8-unix)
     ;; (set-keyboard-coding-system 'utf-8-unix)
