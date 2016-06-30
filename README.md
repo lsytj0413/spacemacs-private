@@ -23,5 +23,6 @@
 2. 我的配置中有一个**liter layer**，包含有自己的一些配置
    
    1. google-c-style
+      
       我在编辑C++代码时使用的风格，其中将c-basic-offset修改为了4.
        
