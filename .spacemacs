@@ -289,10 +289,11 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-(setq configuration-layer--elpa-archives
-	'(("melpa-cn" . "http://elpa.zilongshanren.com/melpa/")
-	  ("org-cn" . "http://elpa.zilongshanren.com/org/")
-	  ("gnu-cn" . "http://elpa.zilongshanren.com/gnu/")))	
+  (setq configuration-layer--elpa-archives
+        '(("melpa-cn" . "http://elpa.zilongshanren.com/melpa/")
+          ("org-cn" . "http://elpa.zilongshanren.com/org/")
+          ("gnu-cn" . "http://elpa.zilongshanren.com/gnu/"))
+        )
   )
 
 (defun dotspacemacs/user-config ()
@@ -314,7 +315,7 @@ you should place you code here."
     (set-variable 'ycmd-server-command (list "python"
                                              (concat (getenv "HOME")
                                                      "/.spacemacs.d/tools/ycmd/ycmd/")))
-    ;; (add-hook 'python-mode-hook 'ycmd-mode)
+    (add-hook 'python-mode-hook 'ycmd-mode)
     )
   (when (eq system-type 'windows-nt)
     (set-buffer-file-coding-system 'utf-8-unix)
