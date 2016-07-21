@@ -331,6 +331,8 @@ you should place you code here."
     ;; (setq locale-coding-system 'utf-8)
     ;; (prefer-coding-system 'utf-8)
     )
+  ;; (setq-default default-directory "/home/lsytj/")
+  ;; (setq-default command-line-default-directory "/home/lsytj/")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
