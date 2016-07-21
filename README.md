@@ -22,17 +22,18 @@
 3. 打开emacs即可, 等待package下载安装完成即可。
 
 ## 配置说明
-
 1. 字体
-
 我的配置使用了**Source Code Pro**字体, 安装方法如下:
+    
     1. 下载字体
     
-    在Github上面的项目主页上下载: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/downloads)
+        在Github上面的项目主页上下载: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/downloads)
+    
     2. 解压
         
             unzip SourceCodePro_FontsOnly-1.103.zip
     得到一个目录.
+    
     3. 复制.otf文件
         
             mkdir ~/.fonts
@@ -41,7 +42,6 @@
             fc-cache -f -v
 
 2. ycmd
-
 我的配置使用了**ycmd-layer**，如果你不想使用则可以关闭。如需使用，则需要进行以下操作:
     1. clone ycmd
     
