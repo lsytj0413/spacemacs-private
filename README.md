@@ -68,16 +68,16 @@
 
 ycmd使用**.ycm_extra_conf.py**文件对补全进行相关配置, 我们可以使用**YCM_Generator**库来自动生成该文件.
     
-    1. clone YCM_Generator
+1. clone YCM_Generator
     
             git clone https://github.com/rdnetto/YCM_Generator.git
     
-    2. 生成配置文件
+2. 生成配置文件
     
     YCM_Generator支持CMake, make等, 需要你的工作目录有makefile等文件即可.
     
         ./config_gen.py DIR
-    3. 可能遇到的问题
+3. 可能遇到的问题
        * 不支持C++11
            修改生成的**.ycm_extra_conf.py**文件, 在**flags**列表中加入**'-std=c++11'**即可。
 
