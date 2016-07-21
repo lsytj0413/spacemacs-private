@@ -55,10 +55,10 @@
         ./build --clang-completer
 3. clang
    
-编译时需要下载**clang for ubuntu16.04**, 比较耗时, 为节省时间可进行以下操作:
+   编译时需要下载**clang for ubuntu16.04**, 比较耗时, 为节省时间可进行以下操作:
    
-       sudo apt-get install clang
-       vim cpp/ycm/CMakeLists.txt
+        sudo apt-get install clang
+        vim cpp/ycm/CMakeLists.txt
    将**USE_SYSTEM_LIBCLANG**修改为**ON**即可.
 
 4. 拷贝文件
