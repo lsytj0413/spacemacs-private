@@ -67,9 +67,11 @@
 为使用ycmd进行补全，还需要进行以下操作:
 
 ycmd使用**.ycm_extra_conf.py**文件对补全进行相关配置, 我们可以使用**YCM_Generator**库来自动生成该文件.
+    
     1. clone YCM_Generator
     
-        git clone https://github.com/rdnetto/YCM_Generator.git
+            git clone https://github.com/rdnetto/YCM_Generator.git
+    
     2. 生成配置文件
     
     YCM_Generator支持CMake, make等, 需要你的工作目录有makefile等文件即可.
