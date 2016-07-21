@@ -59,7 +59,7 @@
    
        sudo apt-get install clang
        vim cpp/ycm/CMakeLists.txt
-将**USE_SYSTEM_LIBCLANG**修改为**ON**即可.
+   将**USE_SYSTEM_LIBCLANG**修改为**ON**即可.
 
 4. 拷贝文件
    将ycmd下所有文件拷贝到~/.spacemacs.d/tools/ycmd/即可.
@@ -77,18 +77,18 @@ ycmd使用**.ycm_extra_conf.py**文件对补全进行相关配置, 我们可以�
     
 2. 生成配置文件
     
-**YCM_Generator**支持CMake, make等, 需要你的工作目录有makefile等文件即可.
+    **ycm_generator**支持cmake, make等, 需要你的工作目录有makefile等文件即可.
     
         ./config_gen.py DIR
 
 3. 可能遇到的问题
-* 不支持C++11
-修改生成的**.ycm_extra_conf.py**文件, 在**flags**列表中加入**'-std=c++11'**即可。
+   * 不支持C++11
+     修改生成的**.ycm_extra_conf.py**文件, 在**flags**列表中加入**'-std=c++11'**即可。
 
 ### liter
 我的配置中有一个**liter layer**，包含有自己的一些配置
    
 1. google-c-style
       
-我在编辑C++代码时使用的风格，其中将c-basic-offset修改为了4.
+  我在编辑C++代码时使用的风格，其中将c-basic-offset修改为了4.
        
