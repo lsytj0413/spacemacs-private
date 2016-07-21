@@ -58,17 +58,20 @@
             sudo apt-get install clang
             vim cpp/ycm/CMakeLists.txt
     将**USE_SYSTEM_LIBCLANG**修改为**ON**即可.
+    
     4. 拷贝文件
     将ycmd下所有文件拷贝到~/.spacemacs.d/tools/ycmd/即可.
     
             cp ./* ~/.spacemacs.d/tools/ycmd -r
     
 为使用ycmd进行补全，还需要进行以下操作:
+
 ycmd使用**.ycm_extra_conf.py**文件对补全进行相关配置, 我们可以使用**YCM_Generator**库来自动生成该文件.
     1. clone YCM_Generator
     
         git clone https://github.com/rdnetto/YCM_Generator.git
     2. 生成配置文件
+    
     YCM_Generator支持CMake, make等, 需要你的工作目录有makefile等文件即可.
     
         ./config_gen.py DIR
