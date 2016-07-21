@@ -1,12 +1,12 @@
 # lsytj0413的spacemacs私人配置
-## 环境
+## 1: 环境
 * 操作系统: Ubuntu 16.04 TLS
 * Emacs版本: Emacs24.5.1
 使用一下代码安装即可:
     
         sudo apt-get install emacs
     
-## 使用方法
+## 2: 使用方法
 
 1. 克隆spacemacs
         
@@ -21,8 +21,8 @@
         
 3. 打开emacs即可, 等待package下载安装完成即可。
 
-## 配置说明
-### 字体
+## 3: 配置说明
+### 3.1 字体
 我的配置使用了**Source Code Pro**字体, 安装方法如下:
     
 1. 下载字体
@@ -41,8 +41,8 @@
         cp ./OTF/* ~/.fonts/
         fc-cache -f -v
 
-### ycmd
-#### ycmd-layer
+### 3.2 ycmd
+#### 3.2.1 ycmd-layer
 我的配置使用了**ycmd-layer**，如果你不想使用则可以关闭。如需使用，则需要进行以下操作:
 
 1. clone ycmd
@@ -66,7 +66,7 @@
    
         cp ./* ~/.spacemacs.d/tools/ycmd -r
 
-#### YCM_Generator
+#### 3.2.2 YCM_Generator
 为使用ycmd进行补全，还需要进行以下操作:
 
 ycmd使用**.ycm_extra_conf.py**文件对补全进行相关配置, 我们可以使用**YCM_Generator**库来自动生成该文件.
@@ -85,7 +85,7 @@ ycmd使用**.ycm_extra_conf.py**文件对补全进行相关配置, 我们可以�
    * 不支持C++11
      修改生成的**.ycm_extra_conf.py**文件, 在**flags**列表中加入**'-std=c++11'**即可。
 
-### liter
+### 3.3 liter
 我的配置中有一个**liter layer**，包含有自己的一些配置
    
 1. google-c-style
