@@ -45,26 +45,22 @@
 #### 3.2.1 ycmd-layer
 我的配置使用了**ycmd-layer**，如果你不想使用则可以关闭。如需使用，则需要进行以下操作:
 
-1. clone ycmd
-   
-        git clone https://github.com/Valloric/ycmd.git ~/ycmd
-2. 编译ycmd
+1. 编译ycmd
            
-        cd ~/ycmd
+        cd ~/.spacemacs.d
         git submudule update --init --recursive
+        cd ./tools/ycmd
         ./build --clang-completer
-3. clang
+2. clang
    
    编译时需要下载**clang for ubuntu16.04**, 比较耗时, 为节省时间可进行以下操作:
    
         sudo apt-get install clang
         vim cpp/ycm/CMakeLists.txt
    将**USE_SYSTEM_LIBCLANG**修改为**ON**即可.
-
-4. 拷贝文件
-   将ycmd下所有文件拷贝到~/.spacemacs.d/tools/ycmd/即可.
+3. 完成
    
-        cp ./* ~/.spacemacs.d/tools/ycmd -r
+   等待编译完成生成了ycm_core.so即可使用.
 
 #### 3.2.2 YCM_Generator
 为使用ycmd进行补全，还需要进行以下操作:
@@ -90,5 +86,5 @@ ycmd使用**.ycm_extra_conf.py**文件对补全进行相关配置, 我们可以�
    
 1. google-c-style
       
-  我在编辑C++代码时使用的风格，其中将c-basic-offset修改为了4.
+  我在编辑C++代码时使用的风格，其中将**c-basic-offset**修改为了4.
        
