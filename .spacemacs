@@ -2,6 +2,7 @@
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
+
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -289,6 +290,8 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+
+  (cd "/home/lsytj/")
   (setq configuration-layer--elpa-archives
         '(("melpa-cn" . "http://elpa.zilongshanren.com/melpa/")
           ("org-cn" . "http://elpa.zilongshanren.com/org/")
