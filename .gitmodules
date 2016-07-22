@@ -1,0 +1,3 @@
+[submodule "tools/ycmd"]
+	path = tools/ycmd
+	url = https://github.com/Valloric/ycmd.git
