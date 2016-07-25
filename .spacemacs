@@ -291,7 +291,8 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
-  (cd "/home/lsytj/")
+  (cd (concat (getenv "HOME")
+              "/"))
   (setq configuration-layer--elpa-archives
         '(("melpa-cn" . "http://elpa.zilongshanren.com/melpa/")
           ("org-cn" . "http://elpa.zilongshanren.com/org/")
@@ -307,7 +308,6 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
   (global-company-mode)
-
   (add-hook 'python-mode-hook (lambda ()
                                 (setq python-shell-prompt-detect-failure-warning nil)))
   (menu-bar-mode t)
@@ -337,7 +337,6 @@ you should place you code here."
   ;; (add-hook 'after-init-hook (lambda ()
   ;;                              (setq-default default-directory "/home/lsytj/")
   ;;                              (message "after init hook")))
-  ;; (cd "/home/lsytj/")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
