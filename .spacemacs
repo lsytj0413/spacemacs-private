@@ -300,6 +300,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
         )
   )
 
+(defun liter/run-python-once ()
+  (remove-hook 'python-mode-hook 'liter/run-python-once)
+  (run-python (python-shell-parse-command)))
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -310,6 +314,7 @@ you should place you code here."
   (global-company-mode)
   (add-hook 'python-mode-hook (lambda ()
                                 (setq python-shell-prompt-detect-failure-warning nil)))
+  (add-hook 'python-mode-hook 'liter/run-python-once)
   (menu-bar-mode t)
   (add-hook 'markdown-mode-hook (lambda ()
                                   (setq markdown-coding-system 'utf-8)))
