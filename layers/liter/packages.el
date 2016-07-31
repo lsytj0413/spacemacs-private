@@ -68,7 +68,8 @@ Each entry is either:
       (add-hook 'c-mode-common-hook 'google-make-newline-indent)
       (add-hook 'c-mode-common-hook (lambda ()
                                       (google-set-c-style)
-                                      (setq c-basic-offset 4)))
+                                      (setq c-basic-offset 4)
+                                      (c-set-offset 'access-label -4)))
       )
     ))
 
