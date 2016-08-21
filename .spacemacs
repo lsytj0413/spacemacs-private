@@ -295,7 +295,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
 
-  (setenv "LC_TYPE" "zh_CN.UTF-8")
+  (setenv "LC_CTYPE" "zh_CN.UTF-8")
   (cd (concat (getenv "HOME")
               "/"))
   (setq configuration-layer--elpa-archives
