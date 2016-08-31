@@ -69,7 +69,8 @@ Each entry is either:
       (add-hook 'c-mode-common-hook (lambda ()
                                       (google-set-c-style)
                                       (setq c-basic-offset 4)
-                                      (c-set-offset 'access-label -4)))
+                                      (c-set-offset 'access-label -4)
+                                      (c-set-offset 'case-label 0)))
       )
     ))
 
