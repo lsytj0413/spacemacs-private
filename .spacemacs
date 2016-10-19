@@ -51,8 +51,8 @@ values."
 		  windows-scripts
 		  github
 		  semantic
-		  common-lisp
-		  haskell
+		  ;; common-lisp
+		  ;; haskell
 		  ranger
 		  gtags
 		  ibuffer
