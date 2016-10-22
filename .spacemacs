@@ -53,6 +53,9 @@ values."
 		  semantic
 		  ;; common-lisp
 		  ;; haskell
+      (go :variables
+          go-tab-width 4
+          go-use-gometalinter t)
 		  ranger
 		  gtags
 		  ibuffer
