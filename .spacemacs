@@ -306,6 +306,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
           ("org-cn" . "http://elpa.zilongshanren.com/org/")
           ("gnu-cn" . "http://elpa.zilongshanren.com/gnu/"))
         )
+  (setq exec-path-from-shell-variables '("PATH"
+                                         "GOPATH"
+                                         "GOROOT"
+                                         "GOBIN"))
   )
 
 (defun liter/run-python-once ()
