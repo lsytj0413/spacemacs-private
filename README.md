@@ -17,9 +17,8 @@
 2. 克隆本仓库
 
         git clont https://github.com/lsytj0413/spacemacs-private.git ~/.spacemacs.d
-        ln -s ~/.spacemacs.d/.spacemacs ~/.spacemacs
         
-3. 打开emacs即可, 等待package下载安装完成即可。
+3. 打开emacs, 等待package下载安装完成即可。
 
 ## 3: 配置说明
 ### 3.1 字体
