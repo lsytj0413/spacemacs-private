@@ -30,6 +30,7 @@ values."
 		  ;; <M-m f e R> (Emacs style) to install them.
 		  ;; ----------------------------------------------------------------
 		  helm
+      ;; ivy
 		  (auto-completion :variables
 		   			           auto-completion-enable-sort-by-usage t)
 		  better-defaults
@@ -37,18 +38,18 @@ values."
 		  git
 		  markdown
 		  org
-		  (shell :variables
-		   	     shell-default-shell 'eshell
-		   	     shell-enable-smart-eshell t
-		  	     shell-default-height 30
-		  	     shell-default-position 'bottom)
+		  ;; (shell :variables
+		  ;;  	     shell-default-shell 'eshell
+		  ;;  	     shell-enable-smart-eshell t
+		  ;; 	     shell-default-height 30
+		  ;; 	     shell-default-position 'bottom)
 		  (c-c++ :variables
 		  	     c-c++-default-mode-for-headers 'c++-mode
 		  	     c-c++-enable-clang-support t)
 		  asm
 		  (python :variables
 		  	      python-enable-yapf-format-on-save nil)
-		  windows-scripts
+		  ;; windows-scripts
 		  github
 		  semantic
 		  ;; common-lisp
@@ -66,7 +67,7 @@ values."
 		  (spacemacs-layouts :variables
 		  				           layouts-enable-autosave t
 		  				           layouts-autosave-delay 300)
-		  ;; spell-checking
+		  spell-checking
 		  (syntax-checking :variables
 		  			           syntax-checking-enable-by-default t)
       (chinese :variables
