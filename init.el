@@ -49,6 +49,7 @@ values."
 		  asm
 		  (python :variables
 		  	      python-enable-yapf-format-on-save nil)
+      javascript
 		  ;; windows-scripts
 		  github
 		  semantic
