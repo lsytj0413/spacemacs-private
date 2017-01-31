@@ -353,6 +353,8 @@ you should place you code here."
     ;; (setq locale-coding-system 'utf-8)
     ;; (prefer-coding-system 'utf-8)
     )
+  (eval-after-load 'flycheck-gometalinter
+    '(setq flycheck-gometalinter-disable-linters '("gotype")))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
