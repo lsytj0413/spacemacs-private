@@ -32,6 +32,7 @@
 (defconst liter-packages
   '(
     google-c-style
+    ;; json-mode
     )
   "The list of Lisp packages required by the liter layer.
 
@@ -74,5 +75,18 @@ Each entry is either:
       )
     ))
 
+
+;; (defun liter/init-json-mode ()
+;;   (use-package json-mode
+;;     :defer t
+;;     :init
+;;     (progn
+;;       (add-hook 'json-mode-hook (lambda ()
+;;                                   (defconst json-mode-comments-re
+;;                                     (rx (group "//" (zero-or-more nonl) line-end)))
+;;                                   (push (list json-mode-comments-re 1 font-lock-comment-face)
+;;                                         json-font-lock-keywords-1)))
+;;       )
+;;     ))
 
 ;;; packages.el ends here
