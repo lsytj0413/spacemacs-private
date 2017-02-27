@@ -94,3 +94,28 @@ ycmd使用**.ycm_extra_conf.py**文件对补全进行相关配置, 我们可以�
 ```
 apt install silversearcher-ag
 ```
+
+### go-layer ###
+
+如果需要使用 **go-layer**, 需要使用以下命令安装工具包:
+
+```
+go get -u -v github.com/nsf/gocode
+go get -u -v github.com/rogpeppe/godef
+go get -u -v golang.org/x/tools/cmd/guru
+go get -u -v golang.org/x/tools/cmd/gorename
+go get -u -v golang.org/x/tools/cmd/goimports
+```
+
+如果需要使用 **gometalinter**, 则首先修改 **init.el** 如下:
+
+```
+(go :variables go-use-gometalinter t)
+```
+
+然后安装工具包:
+
+```
+go get -u -v github.com/alecthomas/gometalinter
+gometalinter --install --update
+```
