@@ -354,9 +354,13 @@ you should place you code here."
     ;; (prefer-coding-system 'utf-8)
     )
   (eval-after-load 'flycheck-gometalinter
-    '(setq flycheck-gometalinter-disable-linters '("gotype")))
+    '(progn
+       (setq flycheck-gometalinter-disable-linters '("gotype"))
+       (setq flycheck-gometalinter-deadline "20s")
+       (setq flycheck-gometalinter-fast t)
+       (setq flycheck-gometalinter-tests t))
   )
-
+)
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
