@@ -48,7 +48,8 @@ values."
 		  	     c-c++-enable-clang-support t)
 		  asm
 		  (python :variables
-		  	      python-enable-yapf-format-on-save nil)
+		  	      python-enable-yapf-format-on-save t
+              python-sort-imports-on-save t)
       javascript
 		  ;; windows-scripts
 		  github

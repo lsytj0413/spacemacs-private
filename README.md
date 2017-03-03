@@ -119,3 +119,27 @@ go get -u -v golang.org/x/tools/cmd/goimports
 go get -u -v github.com/alecthomas/gometalinter
 gometalinter --install --update
 ```
+
+### python-layer ###
+
+使用 **python-layer** 需要利用以下命令安装一些工具:
+
+```
+sudo pip install pylint
+sudo pip install autoflake
+sudo pip install anaconda-mode
+sudo pip install isort
+sudo pip install yapf
+```
+
+如果使用 **anaconda-mode** 的过程中出现如下错误:
+
+```
+Blocking call to accept-process-output with quit inhibited!!
+```
+
+则尝试使用以下命令修复:
+
+```
+pip install  jedi==0.8.1 json-rpc==1.8.1 service_factory==0.1.2
+```
