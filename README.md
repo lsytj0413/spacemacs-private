@@ -152,3 +152,4 @@ pylint --generate-rcfile >.pylintrc
 ```
 
 在 **disable** 中添加 C0103（或者 invalid-name) 即可关闭提示常量变量名或者模块名的错误.
+在 **disable** 中添加 R0903 即可关闭提示Too Few method的错误.
