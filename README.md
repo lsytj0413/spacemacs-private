@@ -143,3 +143,12 @@ Blocking call to accept-process-output with quit inhibited!!
 ```
 pip install  jedi==0.8.1 json-rpc==1.8.1 service_factory==0.1.2
 ```
+
+配置 **pylint** 的警告信息:
+
+```
+cd ~
+pylint --generate-rcfile >.pylintrc
+```
+
+在 **disable** 中添加 C0103（或者 invalid-name) 即可关闭提示常量变量名或者模块名的错误.
