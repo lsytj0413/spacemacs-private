@@ -33,7 +33,8 @@ values."
       ;; ivy
 		  (auto-completion :variables
 		   			           auto-completion-enable-sort-by-usage t)
-		  better-defaults
+		  (better-defaults :variables
+                       better-defaults-move-to-end-of-code-first t)
 		  emacs-lisp
 		  git
 		  markdown
@@ -354,6 +355,7 @@ you should place you code here."
     ;; (setq locale-coding-system 'utf-8)
     ;; (prefer-coding-system 'utf-8)
     )
+  ;; (setq flycheck-check-syntax-automatically '(mode-enabled save))
   (eval-after-load 'flycheck-gometalinter
     '(progn
        (setq flycheck-gometalinter-disable-linters '("gotype"))
