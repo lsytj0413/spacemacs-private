@@ -70,6 +70,7 @@ values."
 		  (spacemacs-layouts :variables
 		  				           layouts-enable-autosave t
 		  				           layouts-autosave-delay 300)
+      graphviz
 		  ;; spell-checking
 		  (syntax-checking :variables
 		  			           syntax-checking-enable-by-default t)
