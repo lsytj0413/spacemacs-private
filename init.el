@@ -71,11 +71,12 @@ values."
 		  				           layouts-enable-autosave t
 		  				           layouts-autosave-delay 300)
       graphviz
+      plantuml
 		  ;; spell-checking
 		  (syntax-checking :variables
 		  			           syntax-checking-enable-by-default t)
-      (chinese :variables
-               chinese-enable-fcitx t)
+      ;; (chinese :variables
+      ;;          chinese-enable-fcitx t)
 		  ;; version-control
 		  liter
       )
