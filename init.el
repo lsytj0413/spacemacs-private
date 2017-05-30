@@ -364,7 +364,13 @@ you should place you code here."
        (setq flycheck-gometalinter-deadline "20s")
        (setq flycheck-gometalinter-fast t)
        (setq flycheck-gometalinter-tests t))
-  )
+    )
+  (eval-after-load 'plantuml-mode
+    '(progn
+       (setq plantuml-jar-path (concat (getenv "HOME")
+                                       "/.spacemacs.d/tools/plantuml.jar"))
+       (setq plantuml-output-type "png"))
+    )
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
