@@ -33,6 +33,7 @@
   '(
     google-c-style
     ;; json-mode
+    markdown-mode
     )
   "The list of Lisp packages required by the liter layer.
 
@@ -88,5 +89,17 @@ Each entry is either:
 ;;                                         json-font-lock-keywords-1)))
 ;;       )
 ;;     ))
+
+(defun liter/post-init-markdown-mode ()
+  (progn
+    (with-eval-after-load 'markdown-mode
+      (progn
+        (spacemacs/set-leader-keys-for-major-mode 'gfm-mode
+          "p" 'liter/markdown-to-html)
+        (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
+          "p" 'liter/markdown-to-html)
+        ))
+    )
+  )
 
 ;;; packages.el ends here
