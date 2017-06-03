@@ -34,6 +34,7 @@
     google-c-style
     ;; json-mode
     markdown-mode
+    org
     )
   "The list of Lisp packages required by the liter layer.
 
@@ -98,6 +99,25 @@ Each entry is either:
           "p" 'liter/markdown-to-html)
         (spacemacs/set-leader-keys-for-major-mode 'markdown-mode
           "p" 'liter/markdown-to-html)
+        ))
+    )
+  )
+
+(defun liter/post-init-org ()
+  (progn
+    (with-eval-after-load 'org
+      (progn
+        (message "liter/post-init-org-mode")
+        (spacemacs/set-leader-keys-for-major-mode 'org-mode
+          "h1" 'liter/org-insert-heading-1)
+        (spacemacs/set-leader-keys-for-major-mode 'org-mode
+          "h2" 'liter/org-insert-heading-2)
+        (spacemacs/set-leader-keys-for-major-mode 'org-mode
+          "h3" 'liter/org-insert-heading-3)
+        (spacemacs/set-leader-keys-for-major-mode 'org-mode
+          "h4" 'liter/org-insert-heading-4)
+        (spacemacs/set-leader-keys-for-major-mode 'org-mode
+          "hn" 'liter/org-insert-heading-n)
         ))
     )
   )

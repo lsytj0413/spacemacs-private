@@ -16,3 +16,32 @@
   (start-process "grip" "*gfm-to-html*" "grip" (buffer-file-name) "--export"
                  (format "%s.html" (file-name-base)))
   )
+
+;; TODO: macro
+(defun liter/org-insert-heading-1 ()
+  (interactive)
+  (liter/org-insert-heading-n 1)
+  )
+
+(defun liter/org-insert-heading-2 ()
+  (interactive)
+  (liter/org-insert-heading-n 2)
+  )
+
+(defun liter/org-insert-heading-3 ()
+  (interactive)
+  (liter/org-insert-heading-n 3)
+  )
+
+(defun liter/org-insert-heading-4 ()
+  (interactive)
+  (liter/org-insert-heading-n 4)
+  )
+
+(defun liter/org-insert-heading-n (count)
+  (interactive "nHeading Level: \n")
+  (cond ((or (> count 10) (< count 1))
+         (message "Heading Level must be in [1..10]"))
+        (t
+         (insert (concat (make-string count ?*) " "))))
+  )
