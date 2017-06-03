@@ -107,7 +107,6 @@ Each entry is either:
   (progn
     (with-eval-after-load 'org
       (progn
-        (message "liter/post-init-org-mode")
         (spacemacs/set-leader-keys-for-major-mode 'org-mode
           "h1" 'liter/org-insert-heading-1)
         (spacemacs/set-leader-keys-for-major-mode 'org-mode
