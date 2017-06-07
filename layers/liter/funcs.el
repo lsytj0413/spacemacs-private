@@ -45,3 +45,11 @@
         (t
          (insert (concat (make-string count ?*) " "))))
   )
+
+(defun liter/cleanup-recentf ()
+  (progn
+    (and (fboundp 'recentf-cleanup)
+         (recentf-cleanup)))
+  )
+
+(add-hook 'kill-emacs-hook #'liter/cleanup-recentf)
