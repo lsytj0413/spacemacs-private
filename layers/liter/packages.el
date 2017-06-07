@@ -35,6 +35,7 @@
     ;; json-mode
     markdown-mode
     org
+    (recentf :location built-in)
     )
   "The list of Lisp packages required by the liter layer.
 
@@ -91,6 +92,7 @@ Each entry is either:
 ;;       )
 ;;     ))
 
+;; add export markdown to html with grip
 (defun liter/post-init-markdown-mode ()
   (progn
     (with-eval-after-load 'markdown-mode
@@ -103,6 +105,7 @@ Each entry is either:
     )
   )
 
+;; add insert-org-header function
 (defun liter/post-init-org ()
   (progn
     (with-eval-after-load 'org
@@ -119,6 +122,30 @@ Each entry is either:
           "hn" 'liter/org-insert-heading-n)
         ))
     )
+  )
+
+(defun liter/post-init-recentf ()
+  (progn
+    (setq recentf-exclude
+          '("COMMIT_MSG"
+            "COMMIT_EDITMSG"
+            "github.*txt$"
+            "/tmp/"
+            "/ssh:"
+            "/sudo:"
+            "/TAGS$"
+            "/GTAGS$"
+            "/GRAGS$"
+            "/GPATH$"
+            "\\.mkv$"
+            "\\.mp[34]$"
+            "\\.avi$"
+            "\\.pdf$"
+            "\\.sub$"
+            "\\.srt$"
+            "\\.ass$"
+            ".*png$"))
+    (setq recentf-max-saved-items 1024))
   )
 
 ;;; packages.el ends here

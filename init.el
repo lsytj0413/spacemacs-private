@@ -372,6 +372,7 @@ you should place you code here."
                                        "/.spacemacs.d/tools/plantuml.jar"))
        (setq plantuml-output-type "png"))
     )
+  ;; (add-hook 'kill-emacs-hook 'recentf-cleanup)
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
