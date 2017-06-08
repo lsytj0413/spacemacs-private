@@ -144,7 +144,9 @@ Each entry is either:
             "\\.sub$"
             "\\.srt$"
             "\\.ass$"
-            ".*png$"))
+            ".*png$"
+            "persp-auto-save"
+            "recentf"))
     (setq recentf-max-saved-items 1024))
   )
 
