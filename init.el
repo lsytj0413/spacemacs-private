@@ -40,7 +40,7 @@ values."
 		  markdown
 		  org
 		  (shell :variables
-		   	     shell-default-shell 'term
+		   	     shell-default-shell 'multi-term
 		   	     ;; shell-enable-smart-eshell t
 		  	     shell-default-height 30
 		  	     shell-default-position 'bottom)
