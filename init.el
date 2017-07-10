@@ -372,6 +372,12 @@ you should place you code here."
                                        "/.spacemacs.d/tools/plantuml.jar"))
        (setq plantuml-output-type "png"))
     )
+  ;; (with-eval-after-load 'dired
+  ;;   (put 'dired-find-alternate-file 'disabled nil)
+  ;;   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+  ;;   (setq 'dired-recursive-copies 'always)
+  ;;   (setq 'dired-recursive-deletes 'always)
+  ;;   )
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.

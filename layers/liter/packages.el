@@ -36,6 +36,7 @@
     markdown-mode
     org
     (recentf :location built-in)
+    (dired-mode :location built-in)
     )
   "The list of Lisp packages required by the liter layer.
 
@@ -148,6 +149,22 @@ Each entry is either:
             "persp-auto-save"
             "recentf"))
     (setq recentf-max-saved-items 1024))
+  )
+
+(defun liter/init-dired-mode ()
+  (use-package dired-mode
+    :defer t
+    :init
+    (progn
+      (require 'dired-x)
+      (require 'dired-aux)
+      (setq dired-listing-switches "-alh")
+      (setq dired-recursive-copies 'always)
+      (setq dired-recursive-deletes 'always)
+      (put 'dired-find-alternate-file 'disabled nil)
+      (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+      )
+    )
   )
 
 ;;; packages.el ends here
