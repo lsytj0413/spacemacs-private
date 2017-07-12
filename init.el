@@ -72,6 +72,7 @@ values."
 		  				           layouts-autosave-delay 300)
       graphviz
       plantuml
+      docker
 		  ;; spell-checking
 		  (syntax-checking :variables
 		  			           syntax-checking-enable-by-default t)
