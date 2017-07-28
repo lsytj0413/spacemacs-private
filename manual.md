@@ -1,5 +1,11 @@
 # Spacemacs 使用手册 #
 
+## 基础 ##
+
+### 获取键绑定 ###
+
+可以使用 *which-key-show-top-level* 函数获取当前模式的键绑定.
+
 ## org layer ##
 
 记录一些 org layer 使用过程中的方法及快捷键.
