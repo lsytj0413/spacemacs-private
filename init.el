@@ -51,7 +51,7 @@ values."
 		  (python :variables
 		  	      ;; python-enable-yapf-format-on-save t
               python-sort-imports-on-save t)
-      javascript
+      ;; javascript
 		  ;; windows-scripts
 		  ;; github
 		  semantic
