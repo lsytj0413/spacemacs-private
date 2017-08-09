@@ -53,7 +53,7 @@ values."
               python-sort-imports-on-save t)
       javascript
 		  ;; windows-scripts
-		  github
+		  ;; github
 		  semantic
 		  ;; common-lisp
 		  ;; haskell
