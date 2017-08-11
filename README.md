@@ -13,7 +13,7 @@
 # 因为 16.04 官方源中没有 Emacs25, 需要使用 PPA
 sudo add-apt-repository ppa:kelleyk/emacs
 sudo apt update
-sudo apt install emacs
+sudo apt install emacs25
 ```
     
 ## 2: 使用方法
