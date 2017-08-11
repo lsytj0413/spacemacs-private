@@ -3,11 +3,18 @@
 ## 1: 环境
 
 * 操作系统: Ubuntu 16.04 TLS
-* Emacs版本: Emacs24.5.1
+~~* Emacs版本: Emacs24.5.1~~
+* Emacs版本: Emacs25.2.2
 
 使用以下代码安装即可:
-    
-        sudo apt-get install emacs
+
+```
+# sudo apt-get install emacs
+# 因为 16.04 官方源中没有 Emacs25, 需要使用 PPA
+sudo add-apt-repository ppa:kelleyk/emacs
+sudo apt update
+sudo apt install emacs
+```
     
 ## 2: 使用方法
 
