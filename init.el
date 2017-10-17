@@ -335,6 +335,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
                                          "GOPATH"
                                          "GOROOT"
                                          "GOBIN"))
+
+  (setq frame-resize-pixelwise t)
   )
 
 (defun liter/run-python-once ()
@@ -408,6 +410,7 @@ you should place you code here."
   ;;   )
   (advice-add #'helm-preselect :around #'helm-skip-dots)
   (advice-add #'helm-ff-move-to-first-real-candidate :around #'helm-skip-dots)
+
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
