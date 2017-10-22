@@ -19,15 +19,17 @@ sudo apt install emacs25
 ## 2: 使用方法
 
 1. 克隆spacemacs
-        
-        git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d
-        cd ~/.emacs.d
-        git checkout --track origin/develop
-        
-2. 克隆本仓库
+```
+git clone https://github.com/syl20bnr/spacemacs.git ~/.emacs.d
+cd ~/.emacs.d
+git checkout --track origin/develop
+```
 
-        git clone https://github.com/lsytj0413/spacemacs-private.git ~/.spacemacs.d
-        
+2. 克隆本仓库
+```
+git clone https://github.com/lsytj0413/spacemacs-private.git ~/.spacemacs.d
+```
+
 3. 打开emacs, 等待package下载安装完成即可。
 
 ## 3: 配置说明
@@ -66,17 +68,20 @@ fc-cache -f -v
 我的配置使用了**ycmd-layer**，如果你不想使用则可以关闭。如需使用，则需要进行以下操作:
 
 1. 编译ycmd
-           
-        cd ~/.spacemacs.d
-        git submudule update --init --recursive
-        cd ./tools/ycmd
-        ./build --clang-completer
+```
+cd ~/.spacemacs.d
+git submudule update --init --recursive
+cd ./tools/ycmd
+./build --clang-completer
+```
+
 2. clang
    
    编译时需要下载**clang for ubuntu16.04**, 比较耗时, 为节省时间可进行以下操作:
-   
-        sudo apt-get install clang
-        vim cpp/ycm/CMakeLists.txt
+```
+sudo apt-get install clang
+vim cpp/ycm/CMakeLists.txt
+```
    将**USE_SYSTEM_LIBCLANG**修改为**ON**即可.
 3. 完成
    
@@ -89,14 +94,16 @@ fc-cache -f -v
 ycmd使用**.ycm_extra_conf.py**文件对补全进行相关配置, 我们可以使用**YCM_Generator**库来自动生成该文件.
     
 1. clone YCM_Generator
-    
-        git clone https://github.com/rdnetto/YCM_Generator.git
-    
+```
+git clone https://github.com/rdnetto/YCM_Generator.git
+```
+
 2. 生成配置文件
     
     **ycm_generator**支持cmake, make等, 需要你的工作目录有makefile等文件即可.
-    
-        ./config_gen.py DIR
+```
+./config_gen.py DIR
+```
 
 3. 可能遇到的问题
    * 不支持C++11
