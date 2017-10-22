@@ -38,19 +38,26 @@ sudo apt install emacs25
     
 1. 下载字体
 
-    在Github上面的项目主页上下载: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/downloads)
+    在Github上面的项目主页上下载: [Source Code Pro](https://github.com/adobe-fonts/source-code-pro/downloads), 或者使用以下代码:
+```
+wget https://github.com/downloads/adobe-fonts/source-code-pro/SourceCodePro_FontsOnly-1.013.zip
+```
 
 2. 解压
-    
-        unzip SourceCodePro_FontsOnly-1.103.zip
+
+```
+unzip SourceCodePro_FontsOnly-1.103.zip
+```
 得到一个目录.
 
 3. 复制.otf文件
-    
-        mkdir ~/.fonts
-        cd SourceCodePro_FontsOnly-1.103
-        cp ./OTF/* ~/.fonts/
-        fc-cache -f -v
+
+```
+mkdir ~/.fonts
+cd SourceCodePro_FontsOnly-1.103
+cp ./OTF/* ~/.fonts/
+fc-cache -f -v
+```
 
 ### 3.2 ycmd
 
