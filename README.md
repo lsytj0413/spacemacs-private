@@ -95,7 +95,7 @@ ycmd使用**.ycm_extra_conf.py**文件对补全进行相关配置, 我们可以�
     
 1. clone YCM_Generator
 ```
-git clone https://github.com/rdnetto/YCM_Generator.git
+git clone https://github.com/rdnetto/YCM-Generator.git
 ```
 
 2. 生成配置文件
