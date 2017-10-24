@@ -373,7 +373,8 @@ you should place you code here."
     (set-variable 'ycmd-server-command (list "python"
                                              (concat (getenv "HOME")
                                                      "/.spacemacs.d/tools/ycmd/ycmd/")))
-    (add-hook 'python-mode-hook 'ycmd-mode)
+    (set-variable 'ycmd-startup-timeout 60)
+    ;; (add-hook 'python-mode-hook 'ycmd-mode)
     )
   (when (eq system-type 'windows-nt)
     (set-buffer-file-coding-system 'utf-8-unix)
