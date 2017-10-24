@@ -70,7 +70,7 @@ fc-cache -f -v
 1. 编译ycmd
 ```
 cd ~/.spacemacs.d
-git submudule update --init --recursive
+git submodule update --init --recursive
 cd ./tools/ycmd
 ./build --clang-completer
 ```
