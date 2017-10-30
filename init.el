@@ -30,7 +30,8 @@ values."
 		  ;; <M-m f e R> (Emacs style) to install them.
 		  ;; ----------------------------------------------------------------
 		  ;; helm
-      ivy
+      (ivy :variables
+           ivy-extra-directories nil)
 		  (auto-completion :variables
 		   			           auto-completion-enable-sort-by-usage t)
 		  (better-defaults :variables
@@ -413,7 +414,7 @@ you should place you code here."
   ;;   )
   (advice-add #'helm-preselect :around #'helm-skip-dots)
   (advice-add #'helm-ff-move-to-first-real-candidate :around #'helm-skip-dots)
-
+  ;; (setq counsel-find-file-ignore-regexp (regexp-opt '("." "..")))
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
