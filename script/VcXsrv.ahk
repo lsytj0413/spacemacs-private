@@ -4,10 +4,19 @@
 ;; #IfWinActive ahk_class vcxsrv/x X rl
 #IfWinActive emacs@SOREN-MIBOOK 
 {
+;; 这个脚本不能处理 shift 作为前缀快捷键的问题...
+$<+9::
+ControlSend, , (, emacs@SOREN-MIBOOK
+;; ControlSend, , 9, emacs@SOREN-MIBOOK
+
 ;; Left Shift
+;; LShift up::
 LShift::
 ;; MsgBox OutVcXsrv
-ControlSend, , {LShift}, emacs@SOREN-MIBOOK 
+;; if previously-pressed-key-action = LShift-down
+;; {
+ControlSend, , {LShift}, emacs@SOREN-MIBOOK
+;; }
 return
 
 ;; Ctrl+SPACE
@@ -16,4 +25,5 @@ return
 ;; Send ^{Space}
 ControlSend, , ^{Space}, emacs@SOREN-MIBOOK 
 return
+
 }
