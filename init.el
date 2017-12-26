@@ -33,7 +33,12 @@ values."
       (ivy :variables
            ivy-extra-directories nil)
 		  (auto-completion :variables
-		   			           auto-completion-enable-sort-by-usage t)
+		   			           auto-completion-enable-sort-by-usage t
+                       auto-completion-enable-snippets-in-popup t
+                       :disabled-for
+                       org
+                       ;; markdown
+                       )
 		  (better-defaults :variables
                        better-defaults-move-to-end-of-code-first t)
 		  emacs-lisp
@@ -69,13 +74,16 @@ values."
 		  	      colors-enable-rainbow-identifiers t)
 		  (spacemacs-layouts :variables
 		  				           layouts-enable-autosave t
-		  				           layouts-autosave-delay 900)
+		  				           layouts-autosave-delay 900
+                         )
       graphviz
       plantuml
       docker
 		  ;; spell-checking
 		  (syntax-checking :variables
-		  			           syntax-checking-enable-by-default t)
+		  			           syntax-checking-enable-by-default nil
+                       syntax-checking-enable-tooltips nil
+                       )
       ;; (chinese :variables
       ;;          chinese-enable-fcitx t)
 		  ;; version-control
@@ -95,6 +103,68 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '(
                                   magit
+                                  magit-gh-pulls
+                                  magit-gitflow
+                                  org-projectile
+                                  evil-mc
+                                  realgud
+                                  evil-args
+                                  evil-ediff
+                                  evil-exchange
+                                  evil-unimpaired
+                                  evil-indent-plus
+                                  volatile-highlights
+                                  smartparens
+                                  holy-mode
+                                  skewer-mode
+                                  rainbow-delimiters
+                                  highlight-indentation
+                                  vi-tilde-fringe
+                                  eyebrowse
+                                  org-bullets
+                                  smooth-scrolling
+                                  org-repo-todo
+                                  org-download
+                                  org-timer
+                                  livid-mode
+                                  git-gutter
+                                  git-gutter-fringe
+                                  evil-escape
+                                  leuven-theme
+                                  gh-md
+                                  evil-lisp-state
+                                  spray
+                                  lorem-ipsum
+                                  symon
+                                  ac-ispell
+                                  ace-jump-mode
+                                  auto-complete
+                                  auto-dictionary
+                                  clang-format
+                                  define-word
+                                  google-translate
+                                  disaster
+                                  epic
+                                  fancy-battery
+                                  org-present
+                                  orgit
+                                  orglue
+                                  spacemacs-theme
+                                  helm-flyspell
+                                  flyspell-correct-helm
+                                  clean-aindent-mode
+                                  helm-c-yasnippet
+                                  ace-jump-helm-line
+                                  helm-make
+                                  smeargle
+                                  ido-vertical-mode
+                                  flx-ido
+                                  company-quickhelp
+                                  counsel-projectile
+                                  window-purpose
+                                  ivy-purpose
+                                  helm-purpose
+                                  spacemacs-purpose-popwin
                                   )
    ;; Defines the behaviour of Spacemacs when downloading packages.
    ;; Possible values are `used', `used-but-keep-unused' and `all'. `used' will
@@ -311,6 +381,8 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
+   ;; Add
+   spacemacs-large-file-modes-list '(emacs-lisp-mode)
    ))
 
 (defun dotspacemacs/user-init ()
