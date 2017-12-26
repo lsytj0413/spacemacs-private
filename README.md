@@ -40,7 +40,7 @@ git clone https://github.com/lsytj0413/spacemacs-private.git ~/.spacemacs.d
 
 ### 3.1 字体 ###
 
-我的配置使用了**Source Code Pro**字体, 安装方法如下:
+我的配置使用了 **Source Code Pro** 字体, 安装方法如下:
     
 1. 下载字体
 
@@ -71,7 +71,7 @@ fc-cache -f -v
 
 #### 3.2.1 ycmd-layer ####
 
-我的配置使用了**ycmd-layer**，如果你不想使用则可以关闭。如需使用，则需要进行以下操作:
+我的配置使用了 **ycmd-layer**，如果你不想使用则可以关闭。如需使用，则需要进行以下操作:
 
 1. 编译ycmd
 
@@ -91,7 +91,7 @@ sudo apt-get install clang
 vim cpp/ycm/CMakeLists.txt
 ```
 
-将**USE_SYSTEM_LIBCLANG**修改为**ON**即可.
+将 **USE_SYSTEM_LIBCLANG** 修改为 **ON** 即可.
 
 3. 完成
    
@@ -101,7 +101,7 @@ vim cpp/ycm/CMakeLists.txt
 
 为使用ycmd进行补全，还需要进行以下操作:
 
-ycmd使用**.ycm_extra_conf.py** 文件对补全进行相关配置, 我们可以使用 **YCM_Generator**库来自动生成该文件.
+ycmd使用 **.ycm_extra_conf.py** 文件对补全进行相关配置, 我们可以使用 **YCM_Generator** 库来自动生成该文件.
     
 1. clone YCM_Generator
 
@@ -121,7 +121,7 @@ git clone https://github.com/rdnetto/YCM-Generator.git
 
    * 不支持C++11
    
-       修改生成的**.ycm_extra_conf.py** 文件, 在 **flags** 列表中加入 **'-std=c++11'**即可。
+       修改生成的 **.ycm_extra_conf.py** 文件, 在 **flags** 列表中加入 **'-std=c++11'** 即可。
 
 ### 3.3 liter ###
 
@@ -133,7 +133,7 @@ git clone https://github.com/rdnetto/YCM-Generator.git
        
 ### 3.4 Search ###
 
-使用Spacemacs中的搜索, 例如 ** SPC s a p** 需要安装 **ag**, 命令如下:
+使用Spacemacs中的搜索, 例如 **SPC s a p** 需要安装 **ag**, 命令如下:
 
 ```
 apt install silversearcher-ag
@@ -201,4 +201,4 @@ pylint --generate-rcfile >.pylintrc
 
 ## 4: 使用手册 ##
 
-[使用手册](https://github.com/lsytj0413/spacemacs-private/blob/master/manual.md) 记录了一些常用的快捷键及其他的注意事项.
+[使用手册](./manual.md) 记录了一些常用的快捷键及其他的注意事项.
