@@ -63,7 +63,8 @@ values."
 		  ;; haskell
       (go :variables
           go-tab-width 4
-          go-use-gometalinter t)
+          go-use-gometalinter t
+          )
       protobuf
 		  ranger
 		  gtags
@@ -428,6 +429,25 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (if (and (stringp sel) (string-match "/\\.\\.$" sel))
         (helm-previous-line 1))))
 
+(defun liter/after-save-actions ()
+  "Used in `after-save-hook`."
+  (when (memq this-command '(save-buffer save-some-buffers))
+    (let ((filename (buffer-file-name (current-buffer)))
+          )
+      (when (string-suffix-p ".go" filename)
+        (let* ((dir (file-name-directory filename))
+              (index (cl-search "src/" dir))
+              (package-path (substring dir (+ index 4) -1))
+              (command (format "go install %s" package-path))
+              )
+          (message "after-save-actions: %s" command)
+          (shell-command command)
+          )
+        )
+      )
+    )
+  )
+
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
@@ -480,6 +500,10 @@ you should place you code here."
        (setq plantuml-jar-path (concat (getenv "HOME")
                                        "/.spacemacs.d/tools/plantuml.jar"))
        (setq plantuml-output-type "png"))
+    )
+  (eval-after-load 'go-mode
+    '(progn
+       (add-hook 'after-save-hook 'liter/after-save-actions))
     )
   ;; (with-eval-after-load 'dired
   ;;   (put 'dired-find-alternate-file 'disabled nil)
