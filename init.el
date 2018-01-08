@@ -74,7 +74,7 @@ values."
 		  	      colors-enable-nyan-cat-progress-bar t
 		  	      colors-enable-rainbow-identifiers t)
 		  (spacemacs-layouts :variables
-		  				           layouts-enable-autosave t
+		  				           layouts-enable-autosave nil
 		  				           layouts-autosave-delay 900
                          )
       graphviz
