@@ -515,6 +515,25 @@ you should place you code here."
   (advice-add #'helm-preselect :around #'helm-skip-dots)
   (advice-add #'helm-ff-move-to-first-real-candidate :around #'helm-skip-dots)
   ;; (setq counsel-find-file-ignore-regexp (regexp-opt '("." "..")))
+
+  (define-abbrev-table 'global-abbrev-table
+    '(
+      ("MIT" "// Copyright (c) 2018 soren yang
+//
+// Licensed under the MIT License
+// you may not use this file except in complicance with the License.
+// You may obtain a copy of the License at
+//
+//     https://opensource.org/licenses/MIT
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an \"AS IS\" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+")
+      )
+    )
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
