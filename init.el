@@ -45,11 +45,11 @@ values."
 		  git
 		  markdown
 		  org
-		  (shell :variables
-		   	     shell-default-shell 'multi-term
-		   	     ;; shell-enable-smart-eshell t
-		  	     shell-default-height 30
-		  	     shell-default-position 'bottom)
+		  ;; (shell :variables
+		  ;;  	     shell-default-shell 'multi-term
+		  ;;  	     shell-enable-smart-eshell t
+		  ;; 	     shell-default-height 30
+		  ;; 	     shell-default-position 'bottom)
 		  (c-c++ :variables
 		  	     c-c++-default-mode-for-headers 'c++-mode
 		  	     c-c++-enable-clang-support t)
@@ -63,8 +63,7 @@ values."
 		  ;; haskell
       (go :variables
           go-tab-width 4
-          go-use-gometalinter t
-          )
+          go-use-gometalinter t)
       protobuf
 		  ranger
 		  gtags
@@ -82,8 +81,8 @@ values."
       docker
 		  ;; spell-checking
 		  (syntax-checking :variables
-		  			           syntax-checking-enable-by-default nil
-                       syntax-checking-enable-tooltips nil
+		  			           syntax-checking-enable-by-default t
+                       syntax-checking-enable-tooltips t
                        )
       ;; (chinese :variables
       ;;          chinese-enable-fcitx t)
@@ -471,20 +470,6 @@ you should place you code here."
 
   (setq package-archives configuration-layer--elpa-archives)
 
-  (when (eq system-type 'windows-nt)
-    (set-buffer-file-coding-system 'utf-8-unix)
-    (set-language-environment 'Chinese-GBK)
-    ;; (set-language-environment "UTF-8")
-    ;; (set-default-coding-systems 'utf-8)
-    ;; (set-clipboard-coding-system 'utf-8-unix)
-    ;; (set-file-name-coding-system 'utf-8-unix)
-    ;; (set-keyboard-coding-system 'utf-8-unix)
-    ;; (set-next-selection-coding-system 'utf-8-unix)
-    ;; (set-selection-coding-system 'utf-8-unix)
-    ;; (set-terminal-coding-system 'utf-8-unix)
-    ;; (setq locale-coding-system 'utf-8)
-    ;; (prefer-coding-system 'utf-8)
-    )
   ;; (setq flycheck-check-syntax-automatically '(mode-enabled save))
   (eval-after-load 'flycheck-gometalinter
     '(progn
@@ -492,7 +477,9 @@ you should place you code here."
        (setq flycheck-gometalinter-deadline "20s")
        (setq flycheck-gometalinter-fast t)
        (setq flycheck-gometalinter-tests t)
-       (setq flycheck-gometalinter-enable-linters '("golint"))
+       (setq flycheck-gometalinter-enable-linters '("golint"
+                                                    "goimports")
+             )
        (setq flycheck-gometalinter-vendor t)
        )
     )
