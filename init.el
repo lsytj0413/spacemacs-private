@@ -102,71 +102,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '()
    ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '(
-                                  magit
-                                  magit-gh-pulls
-                                  magit-gitflow
-                                  org-projectile
-                                  evil-mc
-                                  realgud
-                                  evil-args
-                                  evil-ediff
-                                  evil-exchange
-                                  evil-unimpaired
-                                  evil-indent-plus
-                                  volatile-highlights
-                                  smartparens
-                                  holy-mode
-                                  skewer-mode
-                                  rainbow-delimiters
-                                  highlight-indentation
-                                  vi-tilde-fringe
-                                  eyebrowse
-                                  org-bullets
-                                  smooth-scrolling
-                                  org-repo-todo
-                                  org-download
-                                  org-timer
-                                  livid-mode
-                                  git-gutter
-                                  git-gutter-fringe
-                                  evil-escape
-                                  leuven-theme
-                                  gh-md
-                                  evil-lisp-state
-                                  spray
-                                  lorem-ipsum
-                                  symon
-                                  ac-ispell
-                                  ace-jump-mode
-                                  auto-complete
-                                  auto-dictionary
-                                  clang-format
-                                  define-word
-                                  google-translate
-                                  disaster
-                                  epic
-                                  fancy-battery
-                                  org-present
-                                  orgit
-                                  orglue
-                                  spacemacs-theme
-                                  helm-flyspell
-                                  flyspell-correct-helm
-                                  clean-aindent-mode
-                                  helm-c-yasnippet
-                                  ace-jump-helm-line
-                                  helm-make
-                                  smeargle
-                                  ido-vertical-mode
-                                  flx-ido
-                                  company-quickhelp
-                                  counsel-projectile
-                                  window-purpose
-                                  ivy-purpose
-                                  helm-purpose
-                                  spacemacs-purpose-popwin
-                                  )
+   dotspacemacs-frozen-packages '()
    ;; Defines the behaviour of Spacemacs when downloading packages.
    ;; Possible values are `used', `used-but-keep-unused' and `all'. `used' will
    ;; download only explicitly used packages and remove any unused packages as
@@ -177,8 +113,69 @@ values."
    dotspacemacs-download-packages 'used
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
-                                    ;; org-projectile
-                                    ;; magithub
+                                    magit
+                                    magit-gh-pulls
+                                    magit-gitflow
+                                    org-projectile
+                                    evil-mc
+                                    realgud
+                                    evil-args
+                                    evil-ediff
+                                    evil-exchange
+                                    evil-unimpaired
+                                    evil-indent-plus
+                                    volatile-highlights
+                                    smartparens
+                                    holy-mode
+                                    skewer-mode
+                                    rainbow-delimiters
+                                    highlight-indentation
+                                    vi-tilde-fringe
+                                    eyebrowse
+                                    org-bullets
+                                    smooth-scrolling
+                                    org-repo-todo
+                                    org-download
+                                    org-timer
+                                    livid-mode
+                                    git-gutter
+                                    git-gutter-fringe
+                                    evil-escape
+                                    leuven-theme
+                                    gh-md
+                                    evil-lisp-state
+                                    spray
+                                    lorem-ipsum
+                                    symon
+                                    ac-ispell
+                                    ace-jump-mode
+                                    auto-complete
+                                    auto-dictionary
+                                    clang-format
+                                    define-word
+                                    google-translate
+                                    disaster
+                                    epic
+                                    fancy-battery
+                                    org-present
+                                    orgit
+                                    orglue
+                                    spacemacs-theme
+                                    helm-flyspell
+                                    flyspell-correct-helm
+                                    clean-aindent-mode
+                                    helm-c-yasnippet
+                                    ace-jump-helm-line
+                                    helm-make
+                                    smeargle
+                                    ido-vertical-mode
+                                    flx-ido
+                                    company-quickhelp
+                                    counsel-projectile
+                                    window-purpose
+                                    ivy-purpose
+                                    helm-purpose
+                                    spacemacs-purpose-popwin
                                     )
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
@@ -494,7 +491,10 @@ you should place you code here."
        (setq flycheck-gometalinter-disable-linters '("gotype"))
        (setq flycheck-gometalinter-deadline "20s")
        (setq flycheck-gometalinter-fast t)
-       (setq flycheck-gometalinter-tests t))
+       (setq flycheck-gometalinter-tests t)
+       (setq flycheck-gometalinter-enable-linters '("golint"))
+       (setq flycheck-gometalinter-vendor t)
+       )
     )
   (eval-after-load 'plantuml-mode
     '(progn
