@@ -44,7 +44,7 @@ values."
 		  emacs-lisp
 		  git
 		  markdown
-		  org
+		  ;; org
 		  ;; (shell :variables
 		  ;;  	     shell-default-shell 'multi-term
 		  ;;  	     shell-enable-smart-eshell t
@@ -59,16 +59,17 @@ values."
               python-sort-imports-on-save t)
       ;; javascript
 		  ;; github
-		  semantic
+		  ;; semantic
 		  ;; haskell
       (go :variables
           go-tab-width 4
-          go-use-gometalinter t)
+          go-use-gometalinter t
+          gofmt-command "goimports")
       protobuf
 		  ranger
 		  gtags
 		  ibuffer
-		  sql
+		  ;; sql
 		  (colors :variables
 		  	      colors-enable-nyan-cat-progress-bar t
 		  	      colors-enable-rainbow-identifiers t)
@@ -76,9 +77,9 @@ values."
 		  				           layouts-enable-autosave nil
 		  				           layouts-autosave-delay 900
                          )
-      graphviz
-      plantuml
-      docker
+      ;; graphviz
+      ;; plantuml
+      ;; docker
 		  ;; spell-checking
 		  (syntax-checking :variables
 		  			           syntax-checking-enable-by-default t
@@ -477,8 +478,7 @@ you should place you code here."
        (setq flycheck-gometalinter-deadline "20s")
        (setq flycheck-gometalinter-fast t)
        (setq flycheck-gometalinter-tests t)
-       (setq flycheck-gometalinter-enable-linters '("golint"
-                                                    "goimports")
+       (setq flycheck-gometalinter-enable-linters '("golint")
              )
        (setq flycheck-gometalinter-vendor t)
        )
