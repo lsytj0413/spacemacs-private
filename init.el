@@ -37,30 +37,19 @@ values."
                        auto-completion-enable-snippets-in-popup t
                        :disabled-for
                        org
-                       ;; markdown
                        )
 		  (better-defaults :variables
                        better-defaults-move-to-end-of-code-first t)
 		  emacs-lisp
 		  git
 		  markdown
-		  ;; org
-		  ;; (shell :variables
-		  ;;  	     shell-default-shell 'multi-term
-		  ;;  	     shell-enable-smart-eshell t
-		  ;; 	     shell-default-height 30
-		  ;; 	     shell-default-position 'bottom)
+		  org
 		  (c-c++ :variables
 		  	     c-c++-default-mode-for-headers 'c++-mode
 		  	     c-c++-enable-clang-support t)
-		  ;; asm
 		  (python :variables
 		  	      ;; python-enable-yapf-format-on-save t
               python-sort-imports-on-save t)
-      ;; javascript
-		  ;; github
-		  ;; semantic
-		  ;; haskell
       (go :variables
           go-tab-width 4
           go-use-gometalinter t
@@ -69,7 +58,6 @@ values."
 		  ranger
 		  gtags
 		  ibuffer
-		  ;; sql
 		  (colors :variables
 		  	      colors-enable-nyan-cat-progress-bar t
 		  	      colors-enable-rainbow-identifiers t)
@@ -80,14 +68,11 @@ values."
       ;; graphviz
       ;; plantuml
       ;; docker
-		  ;; spell-checking
+		  ;; sql
 		  (syntax-checking :variables
 		  			           syntax-checking-enable-by-default t
                        syntax-checking-enable-tooltips t
                        )
-      ;; (chinese :variables
-      ;;          chinese-enable-fcitx t)
-		  ;; version-control
 		  liter
       )
 
@@ -125,7 +110,7 @@ values."
                                     evil-unimpaired
                                     evil-indent-plus
                                     volatile-highlights
-                                    smartparens
+                                    ;; smartparens
                                     holy-mode
                                     skewer-mode
                                     rainbow-delimiters
@@ -234,13 +219,7 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                          monokai
-                         ;; spacemacs-dark
-                         ;; spacemacs-light
-                         ;; solarized-light
                          solarized-dark
-                         ;; leuven
-                         ;; monokai
-                         ;; zenburn
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -392,18 +371,24 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq exec-path-from-shell-check-startup-files nil)
   (setenv "LC_CTYPE" "zh_CN.UTF-8")
-  (cd (concat (getenv "HOME")
-              "/"))
-  (setq configuration-layer--elpa-archives
-        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-          ("org-cn" . "http://elpa.emacs-china.org/org/")
-          ("gnu-cn" . "http://elpa.emacs-china.org/gnu/")
-          ("marmalade-cn" . "http://elpa.emacs-china.org/marmalade/")
-          ("user42-cn" . "http://elpa.emacs-china.org/user42/")
-          ("melpa-stable-cn" . "http://elpa.emacs-china.org/melpa-stable/")
-          ("sunrise-commander-cn" . "http://elpa.emacs-china.org/sunrise-commander/")
-          )
-        )
+
+  ;; SPC f f at *spacemacs* buffer root dir
+  (cd (concat (getenv "HOME") "/"))
+
+  ;; emacs-china elpa
+  (setq-default configuration-layer--elpa-archives
+                '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+                  ("org-cn" . "http://elpa.emacs-china.org/org/")
+                  ("gnu-cn" . "http://elpa.emacs-china.org/gnu/")
+                  ("marmalade-cn" . "http://elpa.emacs-china.org/marmalade/")
+                  ("user42-cn" . "http://elpa.emacs-china.org/user42/")
+                  ("melpa-stable-cn" . "http://elpa.emacs-china.org/melpa-stable/")
+                  ("sunrise-commander-cn" . "http://elpa.emacs-china.org/sunrise-commander/")
+                  )
+                )
+  (setq-default package-archives configuration-layer--elpa-archives)
+
+  ;; GO
   (setq exec-path-from-shell-variables '("PATH"
                                          "GOPATH"
                                          "GOROOT"
@@ -416,6 +401,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (remove-hook 'python-mode-hook 'liter/run-python-once)
   (run-python (python-shell-parse-command)))
 
+;; skip . and .. in helm-find-files
 (defun helm-skip-dots (old-func &rest args)
   "Skip . and .. initially in helm-find-files.  First call OLD-FUNC with ARGS."
   (apply old-func args)
@@ -426,8 +412,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
     (if (and (stringp sel) (string-match "/\\.\\.$" sel))
         (helm-previous-line 1))))
 
+;; after-save-hook
 (defun liter/after-save-actions ()
-  "Used in `after-save-hook`."
+  "Used in `after-save-hook`, run go build for golang completion"
   (when (memq this-command '(save-buffer save-some-buffers))
     (let ((filename (buffer-file-name (current-buffer)))
           )
@@ -454,12 +441,18 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place you code here."
   (global-company-mode)
+
   (add-hook 'python-mode-hook (lambda ()
                                 (setq python-shell-prompt-detect-failure-warning nil)))
   (add-hook 'python-mode-hook 'liter/run-python-once)
+
+  ;; open menu-bar
   (menu-bar-mode t)
+
+  ;; markdown codec
   (add-hook 'markdown-mode-hook (lambda ()
                                   (setq markdown-coding-system 'utf-8)))
+
   ;; config depend on system-type
   (when (eq system-type 'gnu/linux)
     (set-variable 'ycmd-server-command (list "python"
@@ -469,43 +462,44 @@ you should place you code here."
     ;; (add-hook 'python-mode-hook 'ycmd-mode)
     )
 
-  (setq package-archives configuration-layer--elpa-archives)
-
   ;; (setq flycheck-check-syntax-automatically '(mode-enabled save))
-  (eval-after-load 'flycheck-gometalinter
-    '(progn
-       (setq flycheck-gometalinter-disable-linters '("gotype"))
-       (setq flycheck-gometalinter-deadline "20s")
-       (setq flycheck-gometalinter-fast t)
-       (setq flycheck-gometalinter-tests t)
-       (setq flycheck-gometalinter-enable-linters '("golint")
-             )
-       (setq flycheck-gometalinter-vendor t)
-       )
-    )
-  (eval-after-load 'plantuml-mode
-    '(progn
-       (setq plantuml-jar-path (concat (getenv "HOME")
-                                       "/.spacemacs.d/tools/plantuml.jar"))
-       (setq plantuml-output-type "png"))
-    )
-  (eval-after-load 'go-mode
-    '(progn
-       (add-hook 'after-save-hook 'liter/after-save-actions))
-    )
+
+  ;; config golang flycheck
+  (with-eval-after-load 'flycheck-gometalinter
+    (setq flycheck-gometalinter-disable-linters '("gotype"))
+    (setq flycheck-gometalinter-deadline "20s")
+    (setq flycheck-gometalinter-fast t)
+    (setq flycheck-gometalinter-tests t)
+    (setq flycheck-gometalinter-enable-linters '("golint"))
+    (setq flycheck-gometalinter-vendor t))
+
+  (with-eval-after-load 'plantuml-mode
+    (setq plantuml-jar-path (concat (getenv "HOME")
+                                    "/.spacemacs.d/tools/plantuml.jar"))
+    (setq plantuml-output-type "png"))
+
+  (with-eval-after-load 'go-mode
+    (add-hook 'after-save-hook 'liter/after-save-actions))
+
+  ;; only one dired
   ;; (with-eval-after-load 'dired
   ;;   (put 'dired-find-alternate-file 'disabled nil)
   ;;   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
   ;;   (setq 'dired-recursive-copies 'always)
   ;;   (setq 'dired-recursive-deletes 'always)
   ;;   )
-  (advice-add #'helm-preselect :around #'helm-skip-dots)
-  (advice-add #'helm-ff-move-to-first-real-candidate :around #'helm-skip-dots)
+
+  (with-eval-after-load 'helm
+    (advice-add #'helm-preselect :around #'helm-skip-dots)
+    (advice-add #'helm-ff-move-to-first-real-candidate :around #'helm-skip-dots))
+
   ;; (setq counsel-find-file-ignore-regexp (regexp-opt '("." "..")))
 
-  (define-abbrev-table 'global-abbrev-table
-    '(
-      ("MIT" "// Copyright (c) 2018 soren yang
+  ;; abbrev
+  (with-eval-after-load 'abbrev-mode
+    (define-abbrev-table 'global-abbrev-table
+      '(
+        ("MIT" "// Copyright (c) 2018 soren yang
 //
 // Licensed under the MIT License
 // you may not use this file except in complicance with the License.
@@ -519,8 +513,9 @@ you should place you code here."
 // See the License for the specific language governing permissions and
 // limitations under the License.
 ")
+        )
       )
-    )
+  )
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -613,7 +608,7 @@ This function is called at the very end of Spacemacs initialization."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (org-brain mwim live-py-mode hy-mode go-tag evil-org company-go auto-compile counsel swiper flycheck helm helm-core ivy markdown-mode alert projectile org-plus-contrib magit-popup ghub with-editor powerline yasnippet dash yasnippet-snippets yapfify xterm-color ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org symon string-inflection stickyfunc-enhance srefactor sql-indent spaceline-all-the-icons solarized-theme smex smeargle shell-pop restart-emacs realgud ranger rainbow-mode rainbow-identifiers rainbow-delimiters pyvenv pytest pyenv-mode py-isort protobuf-mode popwin plantuml-mode pippel pip-requirements persp-mode pcre2el password-generator paradox packed overseer orgit org-projectile org-present org-pomodoro org-download org-bullets open-junk-file neotree nameless multi-term move-text monokai-theme mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum log4e linum-relative link-hint ivy-rtags ivy-purpose ivy-hydra info+ indent-guide importmagic ibuffer-projectile hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-make graphviz-dot-mode google-translate google-c-style golden-ratio godoctor go-rename go-guru go-eldoc gnuplot gntp gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md ggtags fuzzy flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-gometalinter flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dockerfile-mode docker disaster diminish define-word dash-functional cython-mode counsel-projectile counsel-gtags company-ycmd company-statistics company-rtags company-c-headers company-anaconda column-enforce-mode color-identifiers-mode cmake-mode cmake-ide clean-aindent-mode clang-format auto-yasnippet auto-highlight-symbol aggressive-indent adaptive-wrap ace-window ace-link ac-ispell)))
+    (org-pomodoro alert log4e gntp org-brain htmlize gnuplot evil-org yasnippet-snippets yapfify ws-butler winum which-key wgrep uuidgen use-package unfill toc-org string-inflection spaceline-all-the-icons solarized-theme smex restart-emacs ranger rainbow-mode rainbow-identifiers pyvenv pytest pyenv-mode py-isort protobuf-mode popwin pippel pip-requirements persp-mode pcre2el password-generator paradox overseer org-plus-contrib open-junk-file neotree nameless mwim move-text monokai-theme mmm-mode markdown-toc macrostep live-py-mode linum-relative link-hint ivy-rtags ivy-hydra info+ indent-guide importmagic ibuffer-projectile hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers hide-comnt help-fns+ google-c-style golden-ratio godoctor go-tag go-rename go-guru go-eldoc gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link ggtags fuzzy flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-gometalinter flx fill-column-indicator expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lion evil-iedit-state evil-cleverparens evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump diminish cython-mode counsel-gtags company-ycmd company-statistics company-rtags company-go company-c-headers company-anaconda column-enforce-mode color-identifiers-mode cmake-mode cmake-ide bind-map auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(vc-annotate-background nil)
