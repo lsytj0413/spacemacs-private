@@ -53,7 +53,9 @@ values."
       (go :variables
           go-tab-width 4
           go-use-gometalinter t
-          gofmt-command "goimports")
+          gofmt-command "goimports"
+          ;; flycheck-gometalinter-enable-linters '("goimports")
+          )
       protobuf
 		  ranger
 		  gtags
@@ -98,7 +100,7 @@ values."
    dotspacemacs-download-packages 'used
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(
-                                    magit
+                                    ;; magit
                                     magit-gh-pulls
                                     magit-gitflow
                                     org-projectile
