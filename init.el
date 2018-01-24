@@ -470,7 +470,7 @@ you should place you code here."
     (setq flycheck-gometalinter-deadline "20s")
     (setq flycheck-gometalinter-fast t)
     (setq flycheck-gometalinter-tests t)
-    (setq flycheck-gometalinter-enable-linters '("golint"))
+    (setq flycheck-gometalinter-enable-linters '("golint" "goimports"))
     (setq flycheck-gometalinter-vendor t))
 
   (with-eval-after-load 'plantuml-mode
