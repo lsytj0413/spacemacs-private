@@ -69,8 +69,8 @@ values."
                          )
       ;; graphviz
       ;; plantuml
-      ;; docker
-		  ;; sql
+      docker
+		  sql
 		  (syntax-checking :variables
 		  			           syntax-checking-enable-by-default t
                        syntax-checking-enable-tooltips t
@@ -610,7 +610,7 @@ This function is called at the very end of Spacemacs initialization."
  '(magit-diff-use-overlays nil)
  '(package-selected-packages
    (quote
-    (org-pomodoro alert log4e gntp org-brain htmlize gnuplot evil-org yasnippet-snippets yapfify ws-butler winum which-key wgrep uuidgen use-package unfill toc-org string-inflection spaceline-all-the-icons solarized-theme smex restart-emacs ranger rainbow-mode rainbow-identifiers pyvenv pytest pyenv-mode py-isort protobuf-mode popwin pippel pip-requirements persp-mode pcre2el password-generator paradox overseer org-plus-contrib open-junk-file neotree nameless mwim move-text monokai-theme mmm-mode markdown-toc macrostep live-py-mode linum-relative link-hint ivy-rtags ivy-hydra info+ indent-guide importmagic ibuffer-projectile hy-mode hungry-delete hl-todo highlight-parentheses highlight-numbers hide-comnt help-fns+ google-c-style golden-ratio godoctor go-tag go-rename go-guru go-eldoc gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link ggtags fuzzy flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-gometalinter flx fill-column-indicator expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lion evil-iedit-state evil-cleverparens evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump diminish cython-mode counsel-gtags company-ycmd company-statistics company-rtags company-go company-c-headers company-anaconda column-enforce-mode color-identifiers-mode cmake-mode cmake-ide bind-map auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link)))
+    (org-mime docker yasnippet-snippets yapfify ws-butler winum which-key wgrep uuidgen use-package unfill toc-org tablist string-inflection sql-indent spaceline-all-the-icons solarized-theme smex restart-emacs ranger rainbow-mode rainbow-identifiers pyvenv pytest pyenv-mode py-isort protobuf-mode popwin pippel pip-requirements persp-mode pcre2el password-generator paradox overseer org-pomodoro org-brain open-junk-file neotree nameless mwim move-text monokai-theme mmm-mode markdown-toc macrostep live-py-mode linum-relative link-hint json-mode ivy-rtags ivy-hydra info+ indent-guide importmagic ibuffer-projectile hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers hide-comnt help-fns+ google-c-style golden-ratio godoctor go-tag go-rename go-guru go-eldoc gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link ggtags fuzzy flycheck-ycmd flycheck-rtags flycheck-pos-tip flycheck-gometalinter flx fill-column-indicator expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-matchit evil-magit evil-lion evil-iedit-state evil-cleverparens evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump dockerfile-mode docker-tramp diminish cython-mode counsel-gtags company-ycmd company-statistics company-rtags company-go company-c-headers company-anaconda column-enforce-mode color-identifiers-mode cmake-mode cmake-ide bind-map auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link)))
  '(pos-tip-background-color "#A6E22E")
  '(pos-tip-foreground-color "#272822")
  '(vc-annotate-background nil)
