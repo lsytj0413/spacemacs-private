@@ -388,7 +388,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                   ("sunrise-commander-cn" . "http://elpa.emacs-china.org/sunrise-commander/")
                   )
                 )
-  (setq-default package-archives configuration-layer--elpa-archives)
+  (setq-default package-archives configuration-layer-elpa-archives)
 
   ;; GO
   (setq exec-path-from-shell-variables '("PATH"
