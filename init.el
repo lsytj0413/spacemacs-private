@@ -71,6 +71,7 @@ values."
       ;; plantuml
       docker
 		  sql
+      protobuf
 		  (syntax-checking :variables
 		  			           syntax-checking-enable-by-default t
                        syntax-checking-enable-tooltips t
